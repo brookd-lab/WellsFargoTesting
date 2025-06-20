@@ -8,8 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="SecureJWTSSOImplementation\**" />
     <Compile Remove="Services\Product\**" />
+    <EmbeddedResource Remove="SecureJWTSSOImplementation\**" />
     <EmbeddedResource Remove="Services\Product\**" />
+    <None Remove="SecureJWTSSOImplementation\**" />
     <None Remove="Services\Product\**" />
   </ItemGroup>
 
@@ -19,12 +22,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.6">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="137.0.7151.11900" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.12.1" />
   </ItemGroup>
 
 </Project>

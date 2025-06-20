@@ -1,0 +1,6 @@
+@SecureJWTSSOImplementation_HostAddress = http://localhost:5144
+
+GET {{SecureJWTSSOImplementation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

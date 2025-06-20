@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstNUnitTests", "..\First
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATMBankingAPI", "..\ATMBankingAPI\ATMBankingAPI.csproj", "{05358D5C-E271-47CC-B26D-BE57D67781C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecureJWTSSOImplementation", "..\SecureJWTSSOImplementation\SecureJWTSSOImplementation.csproj", "{37C2F291-D79D-4EDA-892F-113EED14A81A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManagement", "..\Inventory\InventoryManagement.csproj", "{9365292F-0BB2-4369-B0C6-14BE358022C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{05358D5C-E271-47CC-B26D-BE57D67781C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05358D5C-E271-47CC-B26D-BE57D67781C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05358D5C-E271-47CC-B26D-BE57D67781C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37C2F291-D79D-4EDA-892F-113EED14A81A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37C2F291-D79D-4EDA-892F-113EED14A81A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37C2F291-D79D-4EDA-892F-113EED14A81A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37C2F291-D79D-4EDA-892F-113EED14A81A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9365292F-0BB2-4369-B0C6-14BE358022C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9365292F-0BB2-4369-B0C6-14BE358022C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9365292F-0BB2-4369-B0C6-14BE358022C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9365292F-0BB2-4369-B0C6-14BE358022C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
