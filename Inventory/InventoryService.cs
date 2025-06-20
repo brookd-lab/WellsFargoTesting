@@ -5,9 +5,9 @@ namespace InventoryManagement
 {
     public class InventoryService
     {
-        private Inventory Inventory { get; }
+        private IInventory Inventory { get; }
 
-        public InventoryService(Inventory inventory)
+        public InventoryService(IInventory inventory)
         {
             if (inventory is null)
                 throw new ArgumentNullException(nameof(inventory));

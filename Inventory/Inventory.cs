@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace InventoryManagement
 {
-    public class Inventory
+    public class Inventory : IInventory
     {
         private readonly List<Product> _products;
 
@@ -51,7 +51,7 @@ namespace InventoryManagement
 
         public IEnumerable<Product> GetAllProducts()
         {
-            foreach(var product in _products)
+            foreach (var product in _products)
             {
                 yield return product;
             }
@@ -89,6 +89,11 @@ namespace InventoryManagement
 
             // Return a new Product with updated quantity
             return new Product(product.Id, product.Name, newQuantity, product.Price, product.LowStockThreshold);
+        }
+
+        public void Clear()
+        {
+            _products.Clear();            
         }
     }
 }

@@ -8,9 +8,9 @@ namespace InventoryManagement
 {
     public class LowStockReportService
     {
-        private readonly Inventory _inventory;
+        private readonly IInventory _inventory;
 
-        public LowStockReportService(Inventory inventory)
+        public LowStockReportService(IInventory inventory)
         {
             _inventory = inventory;
         }

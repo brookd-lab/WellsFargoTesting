@@ -6,21 +6,21 @@ namespace InventoryManagement
 {
     public class InventoryFileService
     {
-        private readonly Inventory inventory;
+        private readonly IInventory _inventory;
 
-        public InventoryFileService(Inventory inventory)
+        public InventoryFileService(IInventory inventory)
         {
             if (inventory is null)
                 throw new ArgumentNullException(nameof(inventory));
 
-            this.inventory = inventory;
+            this._inventory = inventory;
         }
         public bool SaveInventoryToFile(string filePath)
         {
             if (string.IsNullOrWhiteSpace(filePath))
                 throw new ArgumentException("Filepath must not be empty");
 
-            var products = inventory.GetAllProducts();
+            var products = _inventory.GetAllProducts();
 
             var jsonText = JsonSerializer.Serialize(products);
 
@@ -56,41 +56,40 @@ namespace InventoryManagement
             }
         }
 
-        public Inventory? LoadInventoryFromFile(string filePath, out bool successfulLoad)
+        public bool LoadInventoryFromFile(string filePath)
         {
-            string text = "";
+            string json = "";
             List<Product> products = new();
             try
             {
-                text = File.ReadAllText(filePath);
+                json = File.ReadAllText(filePath);
             }
             catch(FileNotFoundException ex)
             {
                 Console.WriteLine($"File not found for file path: {filePath} {ex.Message}");
-                successfulLoad = false;
-                return null;
+                return false;
             }
             catch(UnauthorizedAccessException ex)
             {
                 Console.WriteLine($"Unauthorized access for filePath: {filePath} {ex.Message}");
-                successfulLoad = false;
-                return null;
+                return false;
             }
 
             try
             {
-                products = JsonSerializer.Deserialize<List<Product>>(text)!;
+                products = JsonSerializer.Deserialize<List<Product>>(json)!;
+                _inventory.Clear();
+                foreach(var product in products)
+                {
+                    _inventory.AddProduct(product);
+                }
+                return true;
             }
             catch(JsonException ex)
             {
                 Console.WriteLine($"Invalid Json Format for {filePath} {ex.Message}");
-                successfulLoad = false;
-                return null;
+                return false;
             }
-
-            var inventory = new Inventory(products!);
-            successfulLoad = true;
-            return inventory;
         }
     }
 }
